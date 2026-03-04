@@ -1,88 +1,226 @@
 <!DOCTYPE html>
- <html lang="ko">
- <head>
-   <meta charset="UTF-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <title>개인정보처리방침 — 똥퍼</title>
-   <style>
-     body {
-       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-       max-width: 720px;
-       margin: 0 auto;
-       padding: 2rem 1.5rem;
-       color: #222;
-       line-height: 1.8;
-     }
-     h1 { font-size: 1.6rem; margin-bottom: 0.3rem; }
-     h2 { font-size: 1.1rem; margin-top: 2rem; border-bottom: 1px solid #ddd; padding-bottom: 0.3rem; }
-     p, li { font-size: 0.95rem; }
-     ul { padding-left: 1.4rem; }
-     .updated { color: #888; font-size: 0.85rem; margin-bottom: 2rem; }
-     a { color: #2563eb; }
-   </style>
- </head>
- <body>
-   <h1>개인정보처리방침</h1>
-   <p class="updated">최종 업데이트: 2025년 3월</p>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>개인정보처리방침 — 똥퍼 (Pooper)</title>
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --text-main: #1f2937;
+      --text-muted: #6b7280;
+      --bg-body: #f9fafb;
+      --bg-card: #ffffff;
+      --border-color: #e5e7eb;
+    }
 
-   <p>
-     <strong>똥퍼</strong>(이하 "앱")는 사용자의 개인정보를 중요하게 생각합니다.
-     본 방침은 앱이 어떤 정보를 수집하고 어떻게 사용하는지 설명합니다.
-   </p>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-   <h2>1. 수집하는 정보</h2>
-   <ul>
-     <li>
-       <strong>위치 정보</strong> — 주변 공중화장실 및 편의점을 검색하기 위해
-       기기의 GPS 위치(위도·경도)를 수집합니다. 위치 정보는 외부 API 호출 시
-       검색 기준점으로만 사용되며, 별도 서버에 저장되지 않습니다.
-     </li>
-     <li>
-       <strong>기기 내 저장 데이터</strong> — 검색 결과 캐시 및 앱 설정이
-       기기 로컬 저장소(AsyncStorage)에만 저장됩니다. 외부로 전송되지 않습니다.
-     </li>
-   </ul>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.7;
+      color: var(--text-main);
+      background-color: var(--bg-body);
+      padding: 40px 20px;
+    }
 
-   <h2>2. 정보의 사용 목적</h2>
-   <ul>
-     <li>현재 위치 기반 공중화장실·편의점 검색 및 거리 표시</li>
-     <li>지도 렌더링 및 경로 안내</li>
-     <li>반복 검색 속도 향상을 위한 로컬 캐시</li>
-   </ul>
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    }
 
-   <h2>3. 제3자 서비스</h2>
-   <p>앱은 아래 외부 서비스에 위치 좌표 등 최소한의 데이터를 전달합니다.</p>
-   <ul>
-     <li>
-       <strong>카카오 API</strong> — 지도 렌더링, 장소 검색, 주소 변환에 사용됩니다.
-       <a href="https://www.kakao.com/policy/privacy" target="_blank">카카오 개인정보처리방침</a>
-     </li>
-     <li>
-       <strong>공공데이터포털 (data.go.kr)</strong> — 정부 제공 공중화장실 데이터 조회에 사용됩니다.
-       <a href="https://www.data.go.kr/etc/privacyPolicy.do" target="_blank">공공데이터포털 개인정보처리방침</a>
-     </li>
-     <li>
-       <strong>국토교통부 철도 정보 (KRIC)</strong> — 지하철 화장실 정보 조회에 사용됩니다.
-     </li>
-   </ul>
+    header {
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 20px;
+      margin-bottom: 30px;
+    }
 
-   <h2>4. 광고</h2>
-   <p>앱은 Google AdMob을 통해 광고를 표시합니다. AdMob은 광고 제공을 위해 기기 식별자 등을 수집할 수 있습니다.
-   <a href="https://policies.google.com/privacy" target="_blank">Google 개인정보처리방침</a>을 참고하세요.</p>
+    h1 {
+      font-size: 1.875rem;
+      font-weight: 800;
+      color: #111827;
+      margin-bottom: 8px;
+    }
 
-   <h2>5. 정보 보관 및 파기</h2>
-   <p>
-     앱이 기기에 저장하는 캐시 데이터는 7일 후 자동 만료됩니다.
-     앱을 삭제하면 기기에 저장된 모든 데이터가 함께 삭제됩니다.
-   </p>
+    .updated-date {
+      color: var(--text-muted);
+      font-size: 0.875rem;
+    }
 
-   <h2>6. 아동 개인정보 보호</h2>
-   <p>앱은 만 14세 미만 아동을 대상으로 하지 않으며, 아동의 개인정보를 의도적으로 수집하지 않습니다.</p>
+    section {
+      margin-bottom: 32px;
+    }
 
-   <h2>7. 문의</h2>
-   <p>
-     개인정보 관련 문의는 아래로 연락해 주세요.<br />
-     이메일: <a href="ooooogoon@gmail.com">ooooogoon@gmail.com</a>
-   </p>
- </body>
- </html>
+    h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #111827;
+      display: flex;
+      align-items: center;
+    }
+
+    h2::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 1.25rem;
+      background-color: var(--primary-color);
+      margin-right: 12px;
+      border-radius: 2px;
+    }
+
+    p {
+      margin-bottom: 12px;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 16px;
+    }
+
+    li {
+      margin-bottom: 8px;
+    }
+
+    strong {
+      color: #111827;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: opacity 0.2s;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+
+    .contact-box {
+      background-color: #f3f4f6;
+      padding: 20px;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 640px) {
+      body {
+        padding: 20px 10px;
+      }
+      .container {
+        padding: 24px 16px;
+      }
+      h1 {
+        font-size: 1.5rem;
+      }
+    }
+
+    /* Print styling */
+    @media print {
+      body {
+        background-color: white;
+        padding: 0;
+      }
+      .container {
+        box-shadow: none;
+        width: 100%;
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>개인정보처리방침</h1>
+    <p class="updated-date">최종 업데이트: 2026년 3월 4일</p>
+  </header>
+
+  <section>
+    <p>
+      <strong>똥퍼</strong>(이하 "앱")는 사용자의 개인정보를 소중하게 생각하며, 「개인정보 보호법」 등 관련 법령을 준수하고 있습니다. 본 방침은 앱이 사용자의 데이터를 어떻게 처리하고 보호하는지 투명하게 안내하기 위해 작성되었습니다.
+    </p>
+  </section>
+
+  <section>
+    <h2>1. 개인정보의 수집 항목 및 방법</h2>
+    <p>앱은 서비스 제공을 위해 필요한 최소한의 정보만을 처리하며, 대부분의 데이터는 사용자의 기기 내에서만 처리됩니다.</p>
+    <ul>
+      <li><strong>위치 정보 (GPS):</strong> 사용자의 현재 위치를 기반으로 가까운 화장실 및 편의점을 검색하기 위해 위도·경도 좌표를 수집합니다.</li>
+      <li><strong>기기 및 로그 정보:</strong> 앱 서비스 최적화 및 오류 수정을 위해 기기 모델명, OS 버전, 광고 식별자(ADID/IDFA) 등이 수집될 수 있습니다.</li>
+      <li><strong>로컬 저장 데이터:</strong> 빠른 서비스 제공을 위한 검색 결과 캐시 및 사용자 설정 값은 기기 내 <code>AsyncStorage</code>에 저장됩니다.</li>
+    </ul>
+    <p>※ 위치 정보는 외부 API(카카오 등) 호출 시 검색 기준으로만 전송되며, 개발자의 서버에 별도로 저장되거나 기록되지 않습니다.</p>
+  </section>
+
+  <section>
+    <h2>2. 개인정보의 이용 목적</h2>
+    <p>앱은 수집한 정보를 다음의 목적으로만 이용합니다.</p>
+    <ul>
+      <li>사용자 위치 기반 주변 공중화장실 및 편의점 정보 조회</li>
+      <li>지도 렌더링 및 목적지까지의 경로 안내</li>
+      <li>서비스 이용 기록 분석을 통한 앱 사용성 개선</li>
+      <li>맞춤형 광고 제공 (Google AdMob 이용 시)</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>3. 개인정보의 제3자 제공 및 위탁</h2>
+    <p>앱은 효율적인 서비스 제공을 위해 아래와 같은 외부 서비스를 이용하며, 서비스 제공 과정에서 필요한 최소한의 데이터가 전달될 수 있습니다.</p>
+    <ul>
+      <li><strong>카카오 (Kakao API):</strong> 지도 표시, 장소 검색 및 주소 변환. <a href="https://www.kakao.com/policy/privacy" target="_blank">개인정보처리방침 확인</a></li>
+      <li><strong>공공데이터포털:</strong> 전국 공중화장실 정보 조회. <a href="https://www.data.go.kr/etc/privacyPolicy.do" target="_blank">개인정보처리방침 확인</a></li>
+      <li><strong>국토교통부 (KRIC):</strong> 철도 역내 화장실 정보 조회.</li>
+      <li><strong>Google AdMob:</strong> 앱 내 광고 송출 및 분석. <a href="https://policies.google.com/privacy" target="_blank">개인정보처리방침 확인</a></li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. 개인정보의 보유 및 파기</h2>
+    <ul>
+      <li><strong>위치 정보:</strong> 서비스 제공 즉시 휘발되며 서버에 저장되지 않습니다.</li>
+      <li><strong>로컬 캐시 데이터:</strong> 앱 내 설정이나 운영 정책에 따라 일정 기간(예: 7일) 후 자동 삭제되도록 관리됩니다.</li>
+      <li><strong>앱 삭제 시:</strong> 사용자가 앱을 삭제할 경우, 기기 내 저장된 모든 로컬 데이터는 즉시 파기됩니다.</li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>5. 사용자의 권리 및 행사 방법</h2>
+    <p>사용자는 언제든지 앱 설정을 통해 위치 정보 접근 권한을 철회하거나, 앱을 삭제함으로써 개인정보 처리를 중단할 수 있습니다. 또한 아래 연락처를 통해 개인정보 열람, 정정, 삭제를 요청하실 수 있습니다.</p>
+  </section>
+
+  <section>
+    <h2>6. 개인정보 보호를 위한 노력</h2>
+    <p>앱은 사용자의 데이터를 안전하게 보호하기 위해 암호화 통신(HTTPS)을 사용하며, 불필요한 개인정보를 서버로 전송하지 않는 것을 원칙으로 합니다.</p>
+  </section>
+
+  <section>
+    <h2>7. 문의처</h2>
+    <p>본 방침과 관련하여 궁금한 점이나 의견이 있으시면 아래로 연락해 주시기 바랍니다.</p>
+    <div class="contact-box">
+      <strong>개인정보 보호 책임자</strong><br>
+      이메일: <a href="mailto:ooooogoon@gmail.com">ooooogoon@gmail.com</a><br>
+      웹사이트: <a href="https://ooooogoon.github.io/pooper-privacy/" target="_blank">ooooogoon.github.io/pooper-privacy/</a>
+    </div>
+  </section>
+
+  <footer>
+    <p style="text-align: center; color: var(--text-muted); font-size: 0.8rem; margin-top: 40px;">
+      &copy; 2026 Pooper App. All rights reserved.
+    </p>
+  </footer>
+</div>
+
+</body>
+</html>
